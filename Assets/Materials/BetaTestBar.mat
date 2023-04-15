@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BetaTestBar
+  m_Shader: {fileID: 4800000, guid: ea545e95ac64e8045b1db16bd47fb86b, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 3b8fe36fd6a69c549a6cc10316088f60, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AnimationSpeed: 0.05
+    - _BarFrequency: 14
+    - _BetaStatus: 0
+    - _DiagonalStretch: 0.1
+    - _EndThreshold: 1
+    - _OutlineFade: 1
+    - _OutlineWidth: 0.2
+    - _StartThreshold: 0
+    m_Colors:
+    - _AnimationColor: {r: 0.9811321, g: 0.25385338, b: 0, a: 1}
+    - _BackgroundColor: {r: 0.32439592, g: 0, b: 0.5283019, a: 1}
+    - _BarColor: {r: 0.87169814, g: 0.87485313, b: 1, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _GradientColorA: {r: 0.043137256, g: 0.32156864, b: 0.5803922, a: 1}
+    - _GradientColorB: {r: 0.654902, g: 0, b: 0.45490196, a: 1}
+    - _OutlineColor: {r: 1, g: 0.054199338, b: 0, a: 1}
+    - _UnlitColor: {r: 0.13774498, g: 0, b: 0.2264151, a: 1}
+  m_BuildTextureStacks: []
