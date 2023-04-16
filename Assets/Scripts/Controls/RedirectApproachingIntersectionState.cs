@@ -10,7 +10,7 @@ namespace Controls {
                 state = this;
                 return curr;
             }
-
+            
             return nextDest(last, curr);
         }
 
@@ -25,8 +25,8 @@ namespace Controls {
                 player.playerModel.transform.localPosition = -(playerOffset + player.swerveSize 
                                                             * player.transform.InverseTransformVector(joystickVector));
                 navigateOnNetwork.TurnAround();
-                startRedirect();
                 stopRedirect();
+                startRedirect();
             }
         }
     }
