@@ -11,9 +11,9 @@ public class EnemyPool : GameObjectPool {
                                           OnDestroyPoolObject, true, defaultCapacity, maxPoolSize);
 
         // TODO: Create loading screen to hide the freeze frame that results from this initialization
-        // for (int i=0; i < maxPoolSize; i++) {
-        //     CreatePooledItem();
-        // }
+        for (int i=0; i < maxPoolSize; i++) {
+            CreatePooledItem();
+        }
     }
 
     new void OnTakeFromPool(GameObject enemy) {
