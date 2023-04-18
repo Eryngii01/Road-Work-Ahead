@@ -33,7 +33,7 @@ Material:
     - _AnimationSpeed: 0.05
     - _BarFrequency: 14
     - _BetaStatus: 0
-    - _DiagonalStretch: 0.1
+    - _DiagonalStretch: 0.05
     - _EndThreshold: 1
     - _OutlineFade: 1
     - _OutlineWidth: 0.2
@@ -46,5 +46,5 @@ Material:
     - _GradientColorA: {r: 0.043137256, g: 0.32156864, b: 0.5803922, a: 1}
     - _GradientColorB: {r: 0.654902, g: 0, b: 0.45490196, a: 1}
     - _OutlineColor: {r: 1, g: 0.054199338, b: 0, a: 1}
-    - _UnlitColor: {r: 0.13774498, g: 0, b: 0.2264151, a: 1}
+    - _UnlitColor: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
   m_BuildTextureStacks: []
