@@ -24,7 +24,7 @@ namespace UI
             _startScale = transform.localScale;
         }
 
-        void EnemyDeath(int score, int enemiesLeft) {
+        void EnemyDeath(int score, int enemiesLeft, int comboMultiplier, float comboDepletion) {
             UpdateScore(score);
             UpdateEnemiesLeft(enemiesLeft);
         }

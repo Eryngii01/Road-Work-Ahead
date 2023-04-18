@@ -34,7 +34,7 @@ namespace Tutorial {
             _player.EnableRedirect();
         }
 
-        void EnemyDeath(int score, int enemiesDestroyed) {
+        void EnemyDeath(int score, int enemiesDestroyed, int comboMultiplier, float comboDepletion) {
             if (!_hasDefeatedEnemy) {
                 _hasDefeatedEnemy = true;
                 

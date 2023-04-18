@@ -5,10 +5,11 @@ using UnityEngine;
 using System.Linq;
 
 public class ScoreManager : MonoBehaviour {
+    public float _comboDepletionRate;
     public int score = 0;
     public int scoreScale = 100;
     public int enemyThreshold;
-    private int _livesLost = 0, _toTurnEvil;
+    private int _livesLost = 0, _toTurnEvil, _comboMultiplier = 1;
     private List<Building> _goodBuildings;
 
     private static ScoreManager _instance;
@@ -45,8 +46,9 @@ public class ScoreManager : MonoBehaviour {
         inventoryEvent;
 
     public static event Action<int, int>
-        updateScoreEvent,
         updateWaveEvent;
+    public static event Action<int, int, int, float>
+        updateScoreEvent;
 
     /// Invoked whenever the number of redirects available to the player changes.
     public static event Action<(int total, int available)>
@@ -108,8 +110,12 @@ public class ScoreManager : MonoBehaviour {
 
     public void AddScore(int enemiesLeft) {
         // Will need to be updated later if combos are going to be implemented
-        score += scoreScale;
-        updateScoreEvent?.Invoke(score, enemiesLeft);
+        score += scoreScale * _comboMultiplier;
+
+        _comboMultiplier++;
+        float comboSpeed = Mathf.Clamp(_comboDepletionRate + (0.08f * _comboMultiplier), 0.05f, 1.0f);
+
+        updateScoreEvent?.Invoke(score, enemiesLeft, _comboMultiplier, comboSpeed);
     }
 
     /*
@@ -147,6 +153,10 @@ public class ScoreManager : MonoBehaviour {
                 _goodBuildings.RemoveAt(random);
             }
         }
+    }
+
+    public void ResetCombo() {
+        _comboMultiplier = 1;
     }
 
     public void Pause()
