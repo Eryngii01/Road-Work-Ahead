@@ -9,8 +9,6 @@ public class ItemSpawner : MonoBehaviour
     public int itemsToSpawn = 3;
     public float spawnRadius = 0f;
 
-    public Tracer tracerPrefab;
-
     public GameObject itemPrefab;
     private float t = 0f;
 
@@ -42,5 +40,17 @@ public class ItemSpawner : MonoBehaviour
         spawnPosition.y = 0.5f;
         GameObject item = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
 
+    }
+
+    void OnWaveStart() {
+        itemsToSpawn = 0;
+    }
+
+    void OnEnable() {
+        WaveManager.waveStart += OnWaveStart;
+    }
+
+    void OnDisable() {
+        WaveManager.waveStart -= OnWaveStart;
     }
 }

@@ -13,9 +13,10 @@ public class ScoreBooster : Item
     public override void Deploy(Node node)
     {
         // Score booster will increase the score by 7441, beating Elias by 1 point
+        // We'll tone this down to 500 and recommission it
         holder = null;
         dropped = true;
-        ScoreManager.Instance.BonusScore(7441);
+        ScoreManager.Instance.BonusScore(500);
     }
 
     public override void preDropAnimation()

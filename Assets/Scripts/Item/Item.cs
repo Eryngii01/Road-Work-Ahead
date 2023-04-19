@@ -7,6 +7,7 @@ public enum ItemType {
     SuperCar = 1,
     Hourglass = 2,
     CellTower = 3
+    // ScoreBoost = 4
 }
 
 public abstract class Item : MonoBehaviour

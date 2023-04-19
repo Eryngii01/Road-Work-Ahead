@@ -8,7 +8,7 @@ public class WaveManager : MonoBehaviour
     // -------------- Wave Information ---------------
     [System.Serializable]
     public class Wave {
-        public int maxEnemies;
+        public int maxEnemies, itemsToSpawn;
         public EnemySpawner[] activeSpawners;
     }
 
@@ -72,31 +72,30 @@ public class WaveManager : MonoBehaviour
 
         UpdateSpawners();
         // Activate spawners that are active in the current wave
-        itemsToSpawnThisWave = 0;
+        Wave currentWave = waveInfo[_waveNumber];
+        itemsToSpawnThisWave = currentWave.itemsToSpawn;
 
         var timeDelayForDeathAnimation = 0.25f;
         yield return new WaitForSeconds(preparationTime - timeDelayForDeathAnimation);
 
         // Calculate the enemies per spawner
-        int enemiesPerSpawner = waveInfo[_waveNumber].maxEnemies / waveInfo[_waveNumber].activeSpawners.Length;
+        int enemiesPerSpawner = currentWave.maxEnemies / currentWave.activeSpawners.Length;
         int currentEnemies = 0;
 
         bool anySpawnerActive = false;
-        for (int i = 0; i < waveInfo[_waveNumber].activeSpawners.Length; i++) {
-            EnemySpawner spawner = waveInfo[_waveNumber].activeSpawners[i];
+        for (int i = 0; i < currentWave.activeSpawners.Length; i++) {
+            EnemySpawner spawner = currentWave.activeSpawners[i];
 
             spawner.enabled = true;
             spawner.gameObject.SetActive(true);
-
-            itemsToSpawnThisWave++;
             anySpawnerActive = true;
 
-            if (i + 1 < waveInfo[_waveNumber].activeSpawners.Length) {
+            if (i + 1 < currentWave.activeSpawners.Length) {
                 spawner.maxEnemies = enemiesPerSpawner;
                 currentEnemies += enemiesPerSpawner;
             } else {
-                spawner.maxEnemies = waveInfo[_waveNumber].maxEnemies - currentEnemies;
-                Debug.Assert((currentEnemies + spawner.maxEnemies) == waveInfo[_waveNumber].maxEnemies, 
+                spawner.maxEnemies = currentWave.maxEnemies - currentEnemies;
+                Debug.Assert((currentEnemies + spawner.maxEnemies) == currentWave.maxEnemies, 
                                 "Spawners aren't spawning the right number of enemies!");
             }
         }
@@ -104,19 +103,20 @@ public class WaveManager : MonoBehaviour
         // If no spawner is active, activate all spawners
         if (!anySpawnerActive)
         {
-            foreach (GameObject spawner in allSpawners)
-            {
+            foreach (GameObject spawner in allSpawners) {
                 spawner.SetActive(true);
                 itemsToSpawnThisWave++;
             }
         }
-        ScoreManager.Instance.NextWave(_waveNumber, waveInfo[_waveNumber].maxEnemies);
+        ScoreManager.Instance.NextWave(_waveNumber, currentWave.maxEnemies);
         ScoreManager.Instance.SetSpeedMultiplier(0f);
 
         var itemSpawner = GameObject.FindGameObjectsWithTag("ItemSpawner");
-        foreach (GameObject spawner in itemSpawner)
-        {
-            spawner.GetComponent<ItemSpawner>().itemsToSpawn = 1;
+        for (int i = 0; i < itemsToSpawnThisWave; i++) {
+            int random = UnityEngine.Random.Range(0, itemSpawner.Length - 1);
+            Debug.Log(random);
+
+            itemSpawner[random].GetComponent<ItemSpawner>().itemsToSpawn++;
         }
 
         yield return new WaitForSeconds(preparationTime - timeDelayForDeathAnimation);
