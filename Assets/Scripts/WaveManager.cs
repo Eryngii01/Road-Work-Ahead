@@ -160,13 +160,19 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(NewWave());
     }
 
+    void CeaseWave(int score, int placement) {
+        StopAllCoroutines();
+    }
+
     void OnEnable() {
         ScoreManager.updateDestructionEvent += UpdateWaveProgress;
         ScoreManager.skipWaveEvent += NextWave;
+        ScoreManager.highScoreEvent += CeaseWave;
     }
 
     void OnDisable() {
         ScoreManager.updateDestructionEvent -= UpdateWaveProgress;
         ScoreManager.skipWaveEvent -= NextWave;
+        ScoreManager.highScoreEvent -= CeaseWave;
     }
 }

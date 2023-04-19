@@ -17,11 +17,11 @@ namespace UI {
         }
 
         void OnEnable() {
-            ScoreManager.gameOverEvent += InvokeEndGame;
+            ScoreManager.gameOverMenuEvent += InvokeEndGame;
         }
 
         void OnDisable() {
-            ScoreManager.gameOverEvent -= InvokeEndGame;
+            ScoreManager.gameOverMenuEvent -= InvokeEndGame;
         }
     }
 }

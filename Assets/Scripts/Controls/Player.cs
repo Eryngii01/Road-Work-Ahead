@@ -32,7 +32,8 @@ namespace Controls {
         Vector3 _playerModelInitialOffset;
 
         // -------------- Input System ---------------
-        PlayerInputActions _playerInputActions;
+        private PlayerInputActions _playerInputActions;
+
         InputAction _movement;
         // --------------- Game Speed ----------------
         int _speedMode = 1;
@@ -160,6 +161,10 @@ namespace Controls {
         }
 
         void EndGame(int score) {
+            DisableControls();
+        }
+
+        void HighScore(int score, int placement) {
             DisableControls();
         }
 
@@ -374,6 +379,7 @@ namespace Controls {
             ScoreManager.playerLifeUpdateEvent += UpdateLife;
 
             ScoreManager.gameOverEvent += EndGame;
+            ScoreManager.highScoreEvent += HighScore;
         }
 
         void OnDisable() {
@@ -391,6 +397,7 @@ namespace Controls {
             ScoreManager.playerLifeUpdateEvent -= UpdateLife;
 
             ScoreManager.gameOverEvent -= EndGame;
+            ScoreManager.highScoreEvent -= HighScore;
         }
     }
 }

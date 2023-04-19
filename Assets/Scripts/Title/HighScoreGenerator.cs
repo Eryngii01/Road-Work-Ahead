@@ -6,6 +6,8 @@ public class HighScoreGenerator : MonoBehaviour {
 
     // If there are no high scores entered yet, hard code some scores in
     void Awake() {
+        PlayerPrefs.DeleteAll();
+        
         if (!PlayerPrefs.HasKey("highScore1")) {
             PlayerPrefs.SetInt("highScore1", 6100);
             PlayerPrefs.SetString("name1","FNL");
@@ -15,8 +17,8 @@ public class HighScoreGenerator : MonoBehaviour {
             PlayerPrefs.SetString("name3","KMD");
             PlayerPrefs.SetInt("highScore4", 1800);
             PlayerPrefs.SetString("name4","PAN");
-            PlayerPrefs.SetInt("highScore5", 600);
-            PlayerPrefs.SetString("name5","AAA");
+            PlayerPrefs.SetInt("highScore5", 100);
+            PlayerPrefs.SetString("name5","ZZZ");
 
             PlayerPrefs.Save();
         }

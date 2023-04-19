@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour {
         fastForwardEvent,
         bonusScoreEvent,
         gameOverEvent,
+        gameOverMenuEvent,
         playerLifeUpdateEvent;
 
     public static event Action<float>
@@ -46,6 +47,7 @@ public class ScoreManager : MonoBehaviour {
         inventoryEvent;
 
     public static event Action<int, int>
+        highScoreEvent,
         updateWaveEvent;
     public static event Action<int, int, int, float>
         updateScoreEvent;
@@ -93,9 +95,95 @@ public class ScoreManager : MonoBehaviour {
         _toTurnEvil = _goodBuildings.Count / enemyThreshold;
     }
 
-    public void EndGame()
-    {
+    public void EndGame() {
+        int placement = 0;
+
+        // Compare the current score to the existing scoreboard
+        if (score >= PlayerPrefs.GetInt("highScore1")) {
+            placement = 1;
+
+            // Shift the rest of placements down
+            PlayerPrefs.SetInt("highScore5", PlayerPrefs.GetInt("highScore4"));
+            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4"));
+            
+            PlayerPrefs.SetInt("highScore4", PlayerPrefs.GetInt("highScore3"));
+            PlayerPrefs.SetString("name4", PlayerPrefs.GetString("name3"));
+            
+            PlayerPrefs.SetInt("highScore3", PlayerPrefs.GetInt("highScore2"));
+            PlayerPrefs.SetString("name3", PlayerPrefs.GetString("name2"));
+            
+            PlayerPrefs.SetInt("highScore2", PlayerPrefs.GetInt("highScore1"));
+            PlayerPrefs.SetString("name2", PlayerPrefs.GetString("name1"));
+            
+            PlayerPrefs.SetInt("highScore1", score);
+
+            PlayerPrefs.Save();
+
+            highScoreEvent?.Invoke(score, placement);
+            setSpeedMultiplierEvent?.Invoke(0);
+            return;
+        } else if (score >= PlayerPrefs.GetInt("highScore2")) {
+            placement = 2;
+
+            PlayerPrefs.SetInt("highScore5", PlayerPrefs.GetInt("highScore4"));
+            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4"));
+            
+            PlayerPrefs.SetInt("highScore4", PlayerPrefs.GetInt("highScore3"));
+            PlayerPrefs.SetString("name4", PlayerPrefs.GetString("name3"));
+            
+            PlayerPrefs.SetInt("highScore3", PlayerPrefs.GetInt("highScore2"));
+            PlayerPrefs.SetString("name3", PlayerPrefs.GetString("name2"));
+            
+            PlayerPrefs.SetInt("highScore2", score);
+
+            PlayerPrefs.Save();
+
+            highScoreEvent?.Invoke(score, placement);
+            setSpeedMultiplierEvent?.Invoke(0);
+            return;
+        } else if (score >= PlayerPrefs.GetInt("highScore3")) {
+            placement = 3;
+
+            PlayerPrefs.SetInt("highScore5", PlayerPrefs.GetInt("highScore4"));
+            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4"));
+            
+            PlayerPrefs.SetInt("highScore4", PlayerPrefs.GetInt("highScore3"));
+            PlayerPrefs.SetString("name4", PlayerPrefs.GetString("name3"));
+            
+            PlayerPrefs.SetInt("highScore3", score);
+
+            PlayerPrefs.Save();
+            
+            highScoreEvent?.Invoke(score, placement);
+            setSpeedMultiplierEvent?.Invoke(0);
+            return;
+        } else if (score > PlayerPrefs.GetInt("highScore4")) {
+            placement = 4;
+
+            PlayerPrefs.SetInt("highScore5", PlayerPrefs.GetInt("highScore4"));
+            PlayerPrefs.SetString("name5", PlayerPrefs.GetString("name4"));
+            
+            PlayerPrefs.SetInt("highScore4", score);
+
+            PlayerPrefs.Save();
+
+            highScoreEvent?.Invoke(score, placement);
+            setSpeedMultiplierEvent?.Invoke(0);
+            return;
+        } else if (score > PlayerPrefs.GetInt("highScore5")) {
+            placement = 5;
+
+            PlayerPrefs.SetInt("highScore5", score);
+
+            PlayerPrefs.Save();
+
+            highScoreEvent?.Invoke(score, placement);
+            setSpeedMultiplierEvent?.Invoke(0);
+            return;
+        }
+
         gameOverEvent?.Invoke(score);
+        gameOverMenuEvent?.Invoke(score);
     }
 
     /*
@@ -106,6 +194,10 @@ public class ScoreManager : MonoBehaviour {
     */
     public void TriggerScore() {
         updateDestructionEvent?.Invoke(false);
+    }
+
+    public void TriggerGameOverMenu() {
+        gameOverMenuEvent?.Invoke(score);
     }
 
     public void AddScore(int enemiesLeft) {

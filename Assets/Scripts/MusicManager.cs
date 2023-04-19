@@ -18,6 +18,14 @@ public class MusicManager : MonoBehaviour {
         _specialAudio.Play();
     }
 
+    public void PlayGameOver(int score, int placement) {
+        _themeAudio.Pause();
+
+        _specialAudio.loop = false;
+        _specialAudio.clip = _gameOver;
+        _specialAudio.Play();
+    }
+
     public void PlaySuperCar() {
         _themeAudio.Pause();
         
@@ -34,12 +42,14 @@ public class MusicManager : MonoBehaviour {
 
     void OnEnable() {
         ScoreManager.gameOverEvent += PlayGameOver;
+        ScoreManager.highScoreEvent += PlayGameOver;
         ScoreManager.superEvent += PlaySuperCar;
         ScoreManager.resetSuperEvent += UndoSuperCar;
     }
 
     void OnDisable() {
         ScoreManager.gameOverEvent -= PlayGameOver;
+        ScoreManager.highScoreEvent -= PlayGameOver;
         ScoreManager.superEvent -= PlaySuperCar;
         ScoreManager.resetSuperEvent -= UndoSuperCar;
     }
