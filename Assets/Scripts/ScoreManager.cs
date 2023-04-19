@@ -193,6 +193,7 @@ public class ScoreManager : MonoBehaviour {
         ***Currently, the WaveManager will be informed with this delegate, which will trigger another delegate to update the UI***
     */
     public void TriggerScore() {
+        Debug.Log("Trigger Score from enemy death");
         updateDestructionEvent?.Invoke(false);
     }
 

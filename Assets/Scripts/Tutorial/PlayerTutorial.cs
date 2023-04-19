@@ -34,8 +34,8 @@ namespace Tutorial {
             _player.EnableRedirect();
         }
 
-        void EnemyDeath(int score, int enemiesDestroyed, int comboMultiplier, float comboDepletion) {
-            if (!_hasDefeatedEnemy) {
+        void EnemyDeath(bool reachedGoal) {
+            if (!_hasDefeatedEnemy && !reachedGoal) {
                 _hasDefeatedEnemy = true;
                 
                 // Trigger part 2 of tutorial
@@ -54,11 +54,11 @@ namespace Tutorial {
         }
 
         void OnEnable() {
-            ScoreManager.updateScoreEvent += EnemyDeath;
+            ScoreManager.updateDestructionEvent += EnemyDeath;
         }
 
         void OnDisable() {
-            ScoreManager.updateScoreEvent -= EnemyDeath;
+            ScoreManager.updateDestructionEvent -= EnemyDeath;
         }
     }
 }

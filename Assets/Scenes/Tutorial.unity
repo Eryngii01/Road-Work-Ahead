@@ -6181,7 +6181,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 1523379578}
   completeText: Or it was, until your employer, Autono-me Inc., began flooding the
     streets with those pesky automated delivery cars!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   toSetActive: []
   _dialogueSound: {fileID: 1094794307}
@@ -9383,7 +9383,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 62937775}
   completeText: Now it's up to you to liberate the landscape, using your driving
     skills to cause the AI bots to self-destruct!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 2039152976}
   toSetActive: []
@@ -13109,6 +13109,53 @@ Transform:
   m_Father: {fileID: 1531604080}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &281345915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281345917}
+  - component: {fileID: 281345916}
+  m_Layer: 0
+  m_Name: TracerPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &281345916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281345915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f857fac8ff7974bb3035d5ce247514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4737690964897832622, guid: d5b8f967cb9bafc3582d4fb56c6ed1d2, type: 3}
+  defaultCapacity: 20
+  maxPoolSize: 100
+--- !u!4 &281345917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281345915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.531624, y: 7.5387464, z: 70.15796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281905435
 GameObject:
   m_ObjectHideFlags: 0
@@ -16327,7 +16374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Destroy an AI unit
+  m_text: How durable is this precious AI unit?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d60b5c481de3a5a4f8a154d8ee598049, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: d60b5c481de3a5a4f8a154d8ee598049, type: 2}
@@ -17425,7 +17472,7 @@ MonoBehaviour:
   completeText: Now, it's time to apply these newly earned skills with collisions!
     Remember, the sooner you are obsolete the sooner we can make the world a better
     place!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 409161955}
   toSetActive:
@@ -17939,7 +17986,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 1454319862}
   controlPrompt: {fileID: 986948445}
   completeText: Choose which direction to release the redirect.
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 986948445}
   mustApproachRedirect: 0
@@ -20615,7 +20662,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 399149990}
   controlPrompt: {fileID: 1185973807}
   completeText: Now, approach the highlighted intersection until it changes colour.
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 1185973807}
   mustApproachRedirect: 1
@@ -25686,8 +25733,8 @@ MonoBehaviour:
   textPrompt: {fileID: 2100058284}
   nextPrompt: {fileID: 1300887419}
   spawner: {fileID: 307554066}
-  completeText: What a liberating feeling! Let's get to destroying some more. Drive
-    up to an item on the street to collect it.
+  completeText: What a liberating feeling! Why not destroy some more? Drive up to
+    the mystery item placed on the map to collect it.
   textDelay: 0.01
   toSetInactive:
   - {fileID: 1521115195}
@@ -31317,10 +31364,11 @@ MonoBehaviour:
   nextWindow: {fileID: 286403832}
   nextPrompt: {fileID: 1943701696}
   completeText: First, it is time to start driving! Please demonstrate your aptitude.
-  textDelay: 0.01
+  textDelay: 0.007
   drivingTime: 7
   toSetInactive:
   - {fileID: 1034113370}
+  _dialogueSound: {fileID: 1094794307}
 --- !u!1 &695201633
 GameObject:
   m_ObjectHideFlags: 0
@@ -32306,7 +32354,7 @@ MonoBehaviour:
   controlPrompt: {fileID: 662555921}
   completeText: In order to do so, first, you'll need to begin the redirection process.
     This will highlight the next upcoming intersection.
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 662555921}
   mustApproachRedirect: 0
@@ -46674,7 +46722,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1013742687
@@ -50343,7 +50391,7 @@ MonoBehaviour:
   textPrompt: {fileID: 1329460999}
   nextPrompt: {fileID: 125394650}
   completeText: It is a vibrant urban fabric teeming with human life!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   toSetActive: []
   _dialogueSound: {fileID: 1094794307}
@@ -53520,7 +53568,7 @@ MonoBehaviour:
   completeText: Use this new skill to guide the AI units to their destinations to
     progress the beta test. Once the beta test is completed, human replacement can
     begin!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 890633625}
   - {fileID: 978833874}
@@ -53882,7 +53930,7 @@ MonoBehaviour:
   completeText: Each autonomous vehicle operates by collecting data on existing drivers,
     so as a trusted and loyal employee, you should be guiding these models to their
     delivery destinations to better the company!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   toSetActive: []
   _dialogueSound: {fileID: 1094794307}
@@ -55265,7 +55313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Would you like to attend Autono-me Inc.'s human safety driver tutorial?
+  m_text: Would you like to attend Autono-me Inc.'s human safety driver course?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -57164,7 +57212,7 @@ MonoBehaviour:
   textPrompt: {fileID: 1838931163}
   nextPrompt: {fileID: 392090341}
   completeText: Keep in mind that there's a limit to how many you can use!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 491992180}
   - {fileID: 1291094685}
@@ -60203,7 +60251,7 @@ MonoBehaviour:
   textPrompt: {fileID: 2100058284}
   nextPrompt: {fileID: 993861177}
   spawner: {fileID: 0}
-  completeText: Now that the item is in your inventory, deploy it.
+  completeText: Now that the item is in your inventory, deploy it at the enemy.
   textDelay: 0.01
   toSetInactive:
   - {fileID: 1701687206}
@@ -61005,8 +61053,8 @@ MonoBehaviour:
   maxEnemies: 100
   enemySpeed: 6
   isTutorial: 1
-  enemyPool: {fileID: 0}
-  tracerPool: {fileID: 0}
+  enemyPool: {fileID: 1398246512}
+  tracerPool: {fileID: 281345916}
 --- !u!4 &1309272438
 Transform:
   m_ObjectHideFlags: 0
@@ -65395,6 +65443,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398003891}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1398246511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398246513}
+  - component: {fileID: 1398246512}
+  m_Layer: 0
+  m_Name: EnemyPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1398246512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398246511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fca88c9147a44438ecfc5d81cc8030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6197881011973006063, guid: d4b84db0db9415341ac896db8e848a76, type: 3}
+  defaultCapacity: 5
+  maxPoolSize: 10
+--- !u!4 &1398246513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398246511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.531624, y: 7.5387464, z: 70.15796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398677537
 GameObject:
   m_ObjectHideFlags: 0
@@ -67950,7 +68045,7 @@ MonoBehaviour:
   textPrompt: {fileID: 539081994}
   nextPrompt: {fileID: 1160093620}
   completeText: Great job, human! You've successfully placed your first redirect!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 286403832}
   toSetActive:
@@ -68202,7 +68297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08039defe70eca040aa500a095fbb9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1
+  waitTime: 0.8
   tutorialWindow: {fileID: 2039152976}
   tutorialWindowPart2: {fileID: 1954013904}
   controlPrompt: {fileID: 1222342571}
@@ -71045,7 +71140,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 197253107}
   completeText: And to make matters worse, the are using employees' driving data
     to better the AI algorithm!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   toSetActive: []
   _dialogueSound: {fileID: 1094794307}
@@ -78710,7 +78805,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 1170028702}
   completeText: Other types of models that operate at different speeds can also be
     deployed. All our vehicles will make deliveries in waves.
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   toSetActive: []
   _dialogueSound: {fileID: 1094794307}
@@ -84277,7 +84372,7 @@ MonoBehaviour:
   textPrompt: {fileID: 1329460999}
   nextPrompt: {fileID: 1094640334}
   completeText: Welcome to the City!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   toSetActive: []
   _dialogueSound: {fileID: 1094794307}
@@ -90269,7 +90364,7 @@ MonoBehaviour:
   completeText: You seem adequate, but these autonomous cars are our company's true
     assets! These models will make deliveries from a start point to their designated
     goal.
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive: []
   _dialogueSound: {fileID: 1094794307}
 --- !u!1 &1944640000
@@ -95377,7 +95472,7 @@ MonoBehaviour:
   nextPrompt: {fileID: 694535165}
   completeText: Welcome to Autono-me Inc.'s driving module! Here, we'll teach you
     all the ins and outs needed to operate your vehicle and the workings of the streets!
-  textDelay: 0.01
+  textDelay: 0.007
   toSetInactive:
   - {fileID: 1944640000}
   toSetActive:

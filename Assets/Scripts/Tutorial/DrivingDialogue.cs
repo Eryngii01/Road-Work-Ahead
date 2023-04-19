@@ -16,6 +16,8 @@ namespace Tutorial {
 
         private bool _isTyping, finishedDriving = false;
 
+        public SFXManager _dialogueSound;
+
         public void UpdateDialogue() {
             Color newColor = textPrompt.color;
 
@@ -63,6 +65,7 @@ namespace Tutorial {
             foreach (char letter in completeText.ToCharArray()) {
                 yield return new WaitForSeconds(textDelay);
                 dialogueText.text += letter;
+                _dialogueSound.PlayDialogue();
                 yield return null;
             }
 
