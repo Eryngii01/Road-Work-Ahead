@@ -113,9 +113,7 @@ public class WaveManager : MonoBehaviour
 
         var itemSpawner = GameObject.FindGameObjectsWithTag("ItemSpawner");
         for (int i = 0; i < itemsToSpawnThisWave; i++) {
-            int random = UnityEngine.Random.Range(0, itemSpawner.Length - 1);
-            Debug.Log(random);
-
+            int random = UnityEngine.Random.Range(0, itemSpawner.Length);
             itemSpawner[random].GetComponent<ItemSpawner>().itemsToSpawn++;
         }
 

@@ -10,14 +10,7 @@ public class ScoreBooster : Item
         gameObject.tag = "Item";
     }
 
-    public override void Deploy(Node node)
-    {
-        // Score booster will increase the score by 7441, beating Elias by 1 point
-        // We'll tone this down to 500 and recommission it
-        holder = null;
-        dropped = true;
-        ScoreManager.Instance.BonusScore(500);
-    }
+    public override void Deploy(Node node) {}
 
     public override void preDropAnimation()
     {
@@ -30,5 +23,12 @@ public class ScoreBooster : Item
     {
         // Score booster does not interact with enemies
         return;
+    }
+
+    // Automatically add the bonus to the score when this item is interacted with
+    void OnTriggerEnter(Collider collision) {
+        if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "SuperPlayer") && !dropped) {
+            ScoreManager.Instance.BonusScore(500);
+        }
     }
 }
