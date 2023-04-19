@@ -24171,6 +24171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6784ed485933684c96dc46a6a3ec1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _comboDepletionRate: 0
   score: 0
   scoreScale: 100
   enemyThreshold: 5
@@ -29632,7 +29633,8 @@ PrefabInstance:
       propertyPath: isTutorial
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3445126952898658738, guid: 6ef74579a2b7f704b96ea59cb7124ee1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ef74579a2b7f704b96ea59cb7124ee1, type: 3}
 --- !u!1 &662690182
 GameObject:
@@ -57410,11 +57412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f56c0faf31cdc45962266171a58f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 0
+  waveInfo: []
   enemyIncrease: 2
   spawnIntervalDecrease: 0.5
   minSpawnInterval: 0.5
-  enemyPerWave: 100
   preparationTime: 3
   enemySpawnDelay: 0
   speedIncrease: 1
@@ -60995,7 +60996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852708237dadb1c4b8a4d532a0ca187a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5208988752895301377, guid: 0fa908fdd7a8733408642312fd1a5a68, type: 3}
   spawnInterval: 30
   spawnNode: {fileID: 129848359}
   spawnIndicator: {fileID: 594811935816180183, guid: 13c26273c4f084549990c1fe6fb35383, type: 3}
@@ -61004,8 +61004,9 @@ MonoBehaviour:
   tracerPrefab: {fileID: 4737690964897832622, guid: d5b8f967cb9bafc3582d4fb56c6ed1d2, type: 3}
   maxEnemies: 100
   enemySpeed: 6
-  activeWaves: 01000000
   isTutorial: 1
+  enemyPool: {fileID: 0}
+  tracerPool: {fileID: 0}
 --- !u!4 &1309272438
 Transform:
   m_ObjectHideFlags: 0

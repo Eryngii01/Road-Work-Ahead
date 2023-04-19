@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 namespace Title {
     public class StartMenu : MonoBehaviour {
         
-        public GameObject unlockPrompt, firstSelected, logo;
+        public GameObject unlockPrompt, firstSelected, leaderboardButton, logo;
         private bool _hasUnlocked = false;
         public EventSystem UISystem;
         private PlayerInputActions _playerInputActions;
@@ -61,6 +61,8 @@ namespace Title {
             logo.transform.localPosition = _startPosition2;
             transform.localPosition = _startPosition;
 
+            leaderboardButton.SetActive(false);
+
             // Activate button prompt
             unlockPrompt.SetActive(true);
 
@@ -87,6 +89,7 @@ namespace Title {
             logo.transform.DoMove(this, targetPosition2, _duration2, easeType2, _vShift2, _stretch2);
 
             yield return new WaitForSeconds(0.6f);
+            leaderboardButton.SetActive(true);
             UISystem.SetSelectedGameObject(firstSelected);
         }
 
