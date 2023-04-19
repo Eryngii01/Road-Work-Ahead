@@ -40,11 +40,21 @@ public class MusicManager : MonoBehaviour {
         _themeAudio.Play();
     }
 
+    public void PauseTheme() {
+        _themeAudio.Pause();
+    }
+
+    public void ResumeTheme() {
+        _themeAudio.Play();
+    }
+
     void OnEnable() {
         ScoreManager.gameOverEvent += PlayGameOver;
         ScoreManager.highScoreEvent += PlayGameOver;
         ScoreManager.superEvent += PlaySuperCar;
         ScoreManager.resetSuperEvent += UndoSuperCar;
+        ScoreManager.pauseEvent += PauseTheme;
+        ScoreManager.resumeEvent += ResumeTheme;
     }
 
     void OnDisable() {
@@ -52,5 +62,7 @@ public class MusicManager : MonoBehaviour {
         ScoreManager.highScoreEvent -= PlayGameOver;
         ScoreManager.superEvent -= PlaySuperCar;
         ScoreManager.resetSuperEvent -= UndoSuperCar;
+        ScoreManager.pauseEvent -= PauseTheme;
+        ScoreManager.resumeEvent -= ResumeTheme;
     }
 }

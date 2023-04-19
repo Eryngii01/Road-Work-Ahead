@@ -71138,7 +71138,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1523379580}
   textPrompt: {fileID: 1329460999}
   nextPrompt: {fileID: 197253107}
-  completeText: And to make matters worse, the are using employees' driving data
+  completeText: And to make matters worse, they are using employees' driving data
     to better the AI algorithm!
   textDelay: 0.007
   toSetInactive: []

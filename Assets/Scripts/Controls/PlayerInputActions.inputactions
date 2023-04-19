@@ -269,6 +269,17 @@
                     "action": "Fast Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce2f25c3-60cc-4fa2-9ff5-ccaf95f9d3b6",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fast Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -560,19 +571,7 @@
                     "initialStateCheck": false
                 }
             ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "f7afd6cb-3261-4c3c-bfd6-5a5ff691e5f8",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Skip Wave",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "bindings": []
         },
         {
             "name": "Leaderboard",
